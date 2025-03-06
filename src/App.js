@@ -1,6 +1,5 @@
 import React, { useState, createContext, useContext } from 'react';
 
-// Define mood color palettes
 const moodThemes = {
   happy: {
     primary: '#FFD700',
@@ -32,7 +31,6 @@ const moodThemes = {
   }
 };
 
-// Styles object
 const styles = {
   appContainer: {
     maxWidth: '600px',
@@ -96,7 +94,6 @@ const styles = {
   }
 };
 
-// Keyframes as CSS string
 const keyframes = `
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
@@ -116,10 +113,10 @@ const keyframes = `
 }
 `;
 
-// Theme Context for global state management
+
 const ThemeContext = createContext();
 
-// ThemeProvider Component
+
 const ThemeProvider = ({ children }) => {
   const [currentMood, setCurrentMood] = useState('calm');
   const [theme, setTheme] = useState(moodThemes['calm']);
@@ -136,7 +133,6 @@ const ThemeProvider = ({ children }) => {
   );
 };
 
-// Custom Hook for Theme Context
 const useTheme = () => {
   const context = useContext(ThemeContext);
   if (!context) {
@@ -145,7 +141,6 @@ const useTheme = () => {
   return context;
 };
 
-// MoodSelector Component
 const MoodSelector = () => {
   const { updateMood, currentMood } = useTheme();
 
@@ -169,7 +164,6 @@ const MoodSelector = () => {
   );
 };
 
-// ContentDisplay Component
 const ContentDisplay = () => {
   const { theme, currentMood } = useTheme();
 
